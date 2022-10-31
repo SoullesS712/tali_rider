@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tali_rider/model/location_model.dart';
+import 'package:provider/provider.dart';
+
+var isEnabled = false;
 
 class AnimatedSwitch extends StatefulWidget {
   const AnimatedSwitch({Key? key}) : super(key: key);
@@ -8,7 +12,6 @@ class AnimatedSwitch extends StatefulWidget {
 }
 
 class _AnimatedSwitchState extends State<AnimatedSwitch> {
-  var isEnabled = false;
   final animationDuration = const Duration(milliseconds: 500);
 
   @override
@@ -16,10 +19,12 @@ class _AnimatedSwitchState extends State<AnimatedSwitch> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          isEnabled = !isEnabled;
-          print('Unactived');
+          if (isEnabled = !isEnabled) {
+            print('Actived');
+          } else {
+            print('Unactived');
+          }
         });
-        print('Actived');
       },
       child: AnimatedContainer(
         height: 70,
